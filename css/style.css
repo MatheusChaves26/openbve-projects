@@ -1,0 +1,824 @@
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definição de Variáveis CSS (Custom Properties) no elemento :root */
+/* :root se refere ao elemento raiz do documento (o <html>). */
+:root {
+    /* Cores principais */
+    --fundo-principal: #121212;         /* Fundo escuro geral (quase preto) */
+    --fundo-secundario: #1a1a1a;        /* Fundo para cabeçalho, cards, rodapé (um pouco mais claro que o principal) */
+    --cor-destaque: #00bcd4;                /* Um ciano vibrante, mas não "neon" demais. Você pode experimentar com #00ffff se preferir! */
+    --cor-texto-principal: #e0e0e0;         /* Texto principal claro, mas suave (quase branco) */
+    --cor-texto-secundario: #b0b0b0;        /* Texto para descrições, detalhes (um cinza claro) */
+
+    /* Sombras e efeitos */
+    --cor-sombra: rgba(0, 0, 0, 0.5);       /* Sombra escura genérica */
+    --cor-sombra-destaque: rgba(0, 188, 212, 0.3); /* Sombra com a cor de destaque para hover */
+
+    /* Transições */
+    --transicao-padrao: 0.3s ease;          /* Define uma transição padrão para efeitos de hover, etc. */
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--fundo-principal);
+    color: var(--fundo-principal);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+main {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Rodapé: A parte inferior do site */
+footer.rodape {
+    background-color: var(--cor-fundo-secundario); 
+    padding: 40px 20px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 50px; 
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+
+/* Cabeçalho: Barra superior do site */
+.cabecalho {
+    background-color: var(--fundo-secundario);
+    padding: 15px 0;
+    box-shadow: 0 4px 15px var(--cor-sombra);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+/* Logo dentro do cabeçalho */
+.logo img {
+    height: 50px;
+    filter: drop-shadow(0 0 5px var(--cor-destaque));
+}
+
+
+/* Menu de navegação */
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+
+/* Links do Menu */
+.menu ul li a {
+    text-decoration: none;
+    color: var(--cor-texto-principal);
+    font-weight: 400;
+    transition: var(--transicao-padrao);
+    position: relative;
+    padding: 5px 0;
+}
+
+
+/* Efeito de Linha ao passar o cursor */
+.menu ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--cor-destaque);
+    transition: width var(--transicao-padrao);
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+
+/* Efeito de hover nos links do menu */
+.menu ul li a:hover::after {
+    width: 100%;
+}
+
+.menu ul li a:hover {
+    color: var(--cor-destaque);
+    text-shadow: 0 0 8px var(--cor-destaque);
+}
+
+
+/* Banner: Seção principal de boas-vindas na página inicial */
+.banner {
+    background-image: url('../imagens/banner_fundo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--cor-texto-principal);
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+
+/* Efeito de sobreposição escura para melhorar a legibilidade do texto */
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+/* Garantir que o conteúdo do banner fique acima de sobreposição */
+.banner h1,
+.banner p,
+.banner .botao {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Estilos específicos para o texto dentro do banner (Caso eu queira houver) */
+.banner h1 {
+    font-size: 4.5em;
+    margin-bottom: 10px;
+    color: var(--cor --cor-destaque-claro);
+    text-shadow: 0 0 15px rgba(0, 188, 212, 0.8);
+}
+
+.banner p {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: var(--cor-texto-principal;)
+    font-weight: 300;
+}
+
+
+/* Ajuste para o botão do banner, caso eu precise */
+.banner .botao {
+    font-size: 1.2em;
+    padding: 15px 35px;
+    border-radius: 50px;
+}
+
+
+
+
+
+/* Estilo para titulos de seções (ex: "Projetos em Destaque") */
+.secao-titulo {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-top: 30px;
+}
+
+.secao-titulo h2 {
+    font-size: 38px;
+    color: var(--cor-destaque);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+
+/* Linha de destaque abaixo do Título da seção */
+.secao-titulo h2::after {
+    content: '';
+    display: block;
+    width: 80%;
+    height: 3px;
+    background: var(--cor-destaque);
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    border-radius: 5px;
+}
+
+
+/* Parágrafo descritivo abaixo do Título da seção */
+.secao-titulo p {
+    font-size: 18px;
+    color: var(--cor-texto-secundario);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+/* Seção que contém todos os cards */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+}
+
+
+/* Estilo de um único card */
+.card {
+    background-color: var(--cor-fundo-secundario);
+    border-radius: 12px;
+    padding: 25px;
+    width: 320px;
+    box-shadow: 0 5px 20px var(--cor-sombra);
+    transition: var(--transicao-padrao);
+    text-align: center;
+    border: 1px solid rgba(0, 188, 212, 0.1);
+    overflow: hidden;
+}
+
+
+/* Efeito de hover no card */
+.card:hover {
+    box-shadow: 0 8px 25px;
+    transform: translate(-8px);
+    border-color: var(--cor-destaque);
+}
+
+
+/* Imagem dentro do card */
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* Título dentro do card */
+.card h3 {
+    color: var(--cor-destaque);
+    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
+/* Parágrafo de descrição dentro do card */
+.card p {
+    color: var(--cor-fundo-secundario);
+    margin-bottom: 25px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+/* Botão dentro do card (reusa o estilo do banner, mas com ajustes) */
+.card .botao {
+    background-color: var(--cor-destaque);
+    cor: var(--cor-fundo-secundario);
+    padding: 12px 25px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: var(--transicao-padrao);
+    display: inline-block;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 10px rgba(0, 188, 212, 0.3);
+}
+
+
+/* Efeito de hover no botão do card */
+.card .botao:hover {
+    background-color: transparent;
+    border: 2px solid var(--cor-destaque);
+    color: var(--cor-destaque);
+    text-shadow: 0 0 5px var(--cor-destaque);
+    transform: translateY(-2px); /*Efeito de elevação sutil*/
+    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.5);
+}
+
+
+/* Container específico para o rodapé (reaproveita a classe .container, mas pode ter flex-wrap diferente) */
+footer .container {
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    width: 100%; 
+}
+
+
+/* Colunas do Rodapé (ex: Links, Contato) */
+.rodape-coluna {
+    flex: 1; 
+    min-width: 220px; 
+    margin: 15px; 
+    text-align: left; 
+}
+
+
+/* Títulos das colunas do rodapé */
+.rodape-coluna h4 {
+    color: var(--cor-destaque); 
+    margin-bottom: 18px; 
+    font-size: 22px; 
+    border-bottom: 2px solid var(--cor-destaque); 
+    padding-bottom: 8px; 
+    display: inline-block; 
+}
+
+
+/* Lista de links nas colunas do rodapé */
+.rodape-coluna ul {
+    list-style: none; 
+    padding: 0; 
+}
+
+.rodape-coluna ul li {
+    margin-bottom: 12px; 
+}
+
+.rodape-coluna ul li a {
+    text-decoration: none; 
+    color: var(--cor-texto-secundario); 
+    transition: var(--transicao-padrao); 
+}
+
+.rodape-coluna ul li a:hover {
+    color: var(--cor-destaque);
+    text-shadow: 0 0 5px var(--cor-destaque); 
+    transform: translateX(5px); 
+}
+
+
+/* Direitos Autorais do Rodapé */
+footer .copyright {
+    width: 100%; 
+    text-align: center; 
+    margin-top: 40px; 
+    color: var(--cor-texto-secundario); 
+    font-size: 15px; 
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+    padding-top: 20px; 
+}
+
+
+/* Media Queries para Responsividade: Ajustes para diferentes tamanhos de tela */
+
+/* Para telas menores que 768px (tablets e celulares na horizontal) */
+@media (max-width: 768px) {
+    /* Ajustes gerais para o container */
+    .container {
+        flex-direction: column; /* Coloca os itens em coluna */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    /* Cabeçalho em telas pequenas */
+    .cabecalho .container {
+        flex-direction: column; /* Logo e menu em coluna */
+        align-items: center; /* Centraliza itens */
+    }
+
+    /* Menu em telas pequenas */
+    .menu ul {
+        flex-direction: column; /* Itens do menu em coluna */
+        gap: 15px; /* Espaço entre os itens */
+        margin-top: 20px; /* Espaço abaixo da logo */
+    }
+
+    /* Banner em telas pequenas */
+    .banner h1 {
+        font-size: 40px; /* Diminui o tamanho do título */
+    }
+
+    .banner p {
+        font-size: 16px; /* Diminui o tamanho do parágrafo */
+    }
+
+    /* Títulos de seção em telas pequenas */
+    .secao-titulo h2 {
+        font-size: 30px; /* Diminui o tamanho do título da seção */
+    }
+
+    .secao-titulo p {
+        font-size: 16px; /* Diminui o tamanho do parágrafo da seção */
+    }
+
+    /* Rodapé em telas pequenas */
+    .rodape .container {
+        flex-direction: column; /* Colunas do rodapé em coluna */
+        align-items: center; /* Centraliza as colunas */
+    }
+
+    .rodape-coluna {
+        min-width: 90%; /* Colunas ocupam quase toda a largura */
+        text-align: center; /* Centraliza o texto da coluna */
+        margin-bottom: 20px; /* Espaço entre as colunas */
+    }
+
+    .rodape-coluna h4 {
+        margin: 15px auto; /* Centraliza o título da coluna */
+        display: block; /* Para o margin: auto funcionar */
+    }
+}
+
+
+/* Media Queries para Responsividade: Ajustes para diferentes tamanhos de tela */
+
+/* Para telas menores que 768px (tablets e celulares na horizontal) */
+@media (max-width: 768px) {
+    /* Ajustes gerais para o container */
+    .container {
+        flex-direction: column; /* Coloca os itens em coluna */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    /* Cabeçalho em telas pequenas */
+    .cabecalho .container {
+        flex-direction: column; /* Logo e menu em coluna */
+        align-items: center; /* Centraliza itens */
+    }
+
+    /* Menu em telas pequenas */
+    .menu ul {
+        flex-direction: column; /* Itens do menu em coluna */
+        gap: 15px; /* Espaço entre os itens */
+        margin-top: 20px; /* Espaço abaixo da logo */
+    }
+
+    /* Banner em telas pequenas */
+    .banner h1 {
+        font-size: 40px; /* Diminui o tamanho do título */
+    }
+
+    .banner p {
+        font-size: 16px; /* Diminui o tamanho do parágrafo */
+    }
+
+    /* Títulos de seção em telas pequenas */
+    .secao-titulo h2 {
+        font-size: 30px; /* Diminui o tamanho do título da seção */
+    }
+
+    .secao-titulo p {
+        font-size: 16px; /* Diminui o tamanho do parágrafo da seção */
+    }
+
+    /* Rodapé em telas pequenas */
+    .rodape .container {
+        flex-direction: column; /* Colunas do rodapé em coluna */
+        align-items: center; /* Centraliza as colunas */
+    }
+
+    .rodape-coluna {
+        min-width: 90%; /* Colunas ocupam quase toda a largura */
+        text-align: center; /* Centraliza o texto da coluna */
+        margin-bottom: 20px; /* Espaço entre as colunas */
+    }
+
+    .rodape-coluna h4 {
+        margin: 15px auto; /* Centraliza o título da coluna */
+        display: block; /* Para o margin: auto funcionar */
+    }
+}
+
+/* Para telas menores que 480px (celulares na vertical) */
+@media (max-width: 480px) {
+    .banner h1 {
+        font-size: 32px; /* Diminui ainda mais o título do banner */
+    }
+
+    .banner p {
+        font-size: 14px; /* Diminui ainda mais o parágrafo do banner */
+    }
+
+    .card {
+        width: 90%; /* Cards preenchem quase toda a largura em telas muito pequenas */
+    }
+}
+
+
+/* --- ESTILOS PARA PÁGINA DE DOWNLOADS --- */
+
+/* Container de downloads (similar ao cards, mas com nome específico) */
+.cards-downloads {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Espaço entre os cards de download */
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+    margin-top: 30px; /* Espaço do título da seção */
+}
+
+/* Estilo de um único Card de Download */
+.card-download {
+    background-color: var(--cor-fundo-secundario);
+    border-radius: 12px;
+    padding: 25px;
+    width: 380px; /* Um pouco mais largo que o card de projeto para mais detalhes */
+    box-shadow: 0 5px 20px var(--cor-sombra);
+    transition: var(--transicao-padrao);
+    text-align: left; /* Texto alinhado à esquerda dentro do card */
+    border: 1px solid rgba(0, 188, 212, 0.1);
+    overflow: hidden;
+    display: flex; /* Usar flexbox para a imagem e info */
+    flex-direction: column; /* Conteúdo em coluna */
+}
+
+.card-download:hover {
+    box-shadow: 0 8px 25px var(--cor-sombra-destaque);
+    transform: translateY(-8px);
+    border-color: var(--cor-destaque);
+}
+
+/* Imagem do Card de Download */
+.card-download img {
+    width: 100%;
+    height: 200px; /* Altura um pouco maior para a imagem do download */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Informações do Card de Download */
+.card-download-info {
+    flex-grow: 1; /* Permite que o bloco de informações ocupe o espaço restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para empurrar o botão para baixo */
+}
+
+.card-download h3 {
+    color: var(--cor-destaque);
+    margin-bottom: 12px;
+    font-size: 26px; /* Título um pouco maior */
+    font-weight: 700;
+}
+
+.card-download .descricao {
+    color: var(--cor-texto-secundario);
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Detalhes do Download (Versão, Tamanho, etc.) */
+.detalhes-download {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px; /* Espaço antes do botão */
+    color: var(--cor-texto-principal); /* Cor para os textos de detalhe */
+}
+
+.detalhes-download li {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.detalhes-download li strong {
+    color: var(--cor-destaque); /* Deixa os títulos dos detalhes em destaque */
+    margin-right: 5px;
+}
+
+/* Botão de Download (reutiliza o estilo 'botao' e adiciona ajustes) */
+.card-download .download-botao {
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo-secundario);
+    padding: 12px 25px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: var(--transicao-padrao);
+    display: inline-flex; /* Use inline-flex para centralizar ícone e texto */
+    align-items: center; /* Alinha verticalmente */
+    justify-content: center; /* Alinha horizontalmente */
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 10px rgba(0, 188, 212, 0.3);
+    margin-top: auto; /* Empurra o botão para o final do card */
+}
+
+.card-download .download-botao:hover {
+    background-color: transparent;
+    border: 2px solid var(--cor-destaque);
+    color: var(--cor-destaque);
+    text-shadow: 0 0 5px var(--cor-destaque);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.5);
+}
+
+.download-botao i {
+    margin-right: 8px; /* Espaço entre o ícone e o texto do botão */
+    font-size: 18px;
+}
+
+
+/* Estilos para a seção de filtros (futuro) */
+.filtros-downloads {
+    margin-bottom: 40px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+/* Adição ao CSS */
+
+.titulo-banner {
+    color: #ffffff;
+    font-size: 4.5em;
+    font-weight: 700;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+    z-index: 2;
+}
+
+.subtitulo-banner {
+    color: #ffffff;
+    font-size: 1.8em;
+    font-weight: 300;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+    margin-bottom: 30px;
+    z-index: 2;
+}
+
+.botao-banner {
+    background-color: var(--cor-destaque);
+    color: var(--fundo-principal);
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.5);
+    transition: 0.3s ease;
+    z-index: 2;
+}
+
+.botao-banner:hover {
+    background-color: transparent;
+    border: 2px solid var(--cor-destaque);
+    color: var(--cor-destaque);
+    text-shadow: 0 0 8px var(--cor-destaque);
+}
+
+
+/* Banner centralizado corretamente */
+.banner {
+    background-image: url('../imagens/banner_fundo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 500px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-texto-principal);
+    text-align: center;
+}
+
+/* Sobreposição escura */
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+/* Conteúdo dentro do banner */
+.banner-conteudo {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Título principal */
+.titulo-banner {
+    font-size: 4em;
+    font-weight: bold;
+    color: var(--cor-destaque);
+    text-shadow: 0 0 15px rgba(0, 188, 212, 0.8);
+    margin-bottom: 10px;
+}
+
+/* Subtítulo */
+.subtitulo-banner {
+    font-size: 1.8em;
+    font-weight: 300;
+    color: var(--cor-texto-principal);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+
+/*Animação fade+leve subida Título e substítulo*/
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+/* Animação aplicada ao conteúdo do banner */
+.banner-conteudo {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0; /* Começa invisível */
+}
+
+
+/* Estilo base para páginas simples como "Sobre" e "Contato" */
+.pagina-simples {
+    padding: 60px 20px;
+    text-align: center;
+    color: var(--cor-texto-principal);
+    background-color: var(--fundo-principal);
+}
+
+.container-simples {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.container-simples h1 {
+    font-size: 42px;
+    color: var(--cor-destaque);
+    margin-bottom: 20px;
+}
+
+.container-simples p {
+    font-size: 18px;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.container-simples ul {
+    list-style: none;
+    padding: 0;
+}
+
+.container-simples li {
+    font-size: 17px;
+    color: var(--cor-texto-principal);
+    margin-bottom: 12px;
+}
+
+
+/* Estilo base para páginas simples como "Sobre" e "Contato" */
+.pagina-simples {
+    padding: 60px 20px;
+    text-align: center;
+    color: var(--cor-texto-principal);
+    background-color: var(--fundo-principal);
+}
+
+.container-simples {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.container-simples h1 {
+    font-size: 42px;
+    color: var(--cor-destaque);
+    margin-bottom: 20px;
+}
+
+.container-simples p {
+    font-size: 18px;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.container-simples ul {
+    list-style: none;
+    padding: 0;
+}
+
+.container-simples li {
+    font-size: 17px;
+    color: var(--cor-texto-principal);
+    margin-bottom: 12px;
+}
+
